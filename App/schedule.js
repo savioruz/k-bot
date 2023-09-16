@@ -28,9 +28,9 @@ class Schedule {
   }
 
   getPhoneNumber(msg) {
-    const from = msg.author || '';
+    const from = msg.author || "";
     const match = from.match(/\d+/);
-    return match ? match[0] : '';
+    return match ? match[0] : "";
   }
 
   async scheduleTrigger(msg) {
@@ -96,20 +96,23 @@ class Schedule {
         } catch (err) {
           console.error("[error] Failed to fetch file: ", err);
         }
-      } else if (msg.body === COMMAND_INFO && msg.hasQuotedMsg && msg.from.includes("@g.us")) {
+      } else if (msg.body === COMMAND_INFO && msg.hasQuotedMsg) {
         const quotedMsg = await msg.getQuotedMessage();
         const phoneNumber = this.getPhoneNumber(quotedMsg);
         const fileName = `${this.sanitizeUser(phoneNumber)}.txt`;
         const filePath = path.join(storageDirectory, fileName);
 
         try {
-          if (fs.existsSync(filePath)) {
-            const fileContents = fs.readFileSync(filePath, "utf-8");
-            await this.chat.sendReply(msg, `Jadwal kamu: \n${fileContents}`);
+          if (msg.from.includes("@g.us")) {
+            if (fs.existsSync(filePath)) {
+              const fileContents = fs.readFileSync(filePath, "utf-8");
+              await this.chat.sendReply(msg, `Jadwal kamu: \n${fileContents}`);
+            } else {
+              const msgReply = "Tidak ada jadwal tersimpan";
+              await this.chat.sendReply(msg, msgReply);
+            }
           } else {
-            const msgReply =
-              "Tidak ada jadwal tersimpan";
-            await this.chat.sendReply(msg, msgReply);
+            await this.chat.sendReply(msg, "Pls use this command on group.");
           }
         } catch (err) {
           console.error("[error] Failed to fetch file: ", err);
