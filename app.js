@@ -4,6 +4,7 @@ const command = require("./App/command");
 const schedule = require("./App/schedule");
 const media = require("./App/media");
 const notify = require("./App/notify");
+const translate = require("./App/translate");
 
 let rejectCalls = true;
 const myGroup = "120363160807612693@g.us";
@@ -96,4 +97,5 @@ client.on("message", async (msg) => {
   await command.list(msg, client);
   await schedule.scheduleTrigger(msg);
   await media.sendMedia(msg, client);
+  await translate.sendTranslate(msg);
 });
