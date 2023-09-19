@@ -19,10 +19,6 @@ class Schedule {
     }
   }
 
-  startsWith(str, prefix) {
-    return str.indexOf(prefix) === 0;
-  }
-
   sanitizeUser(phoneNumber) {
     return phoneNumber.match(/\d+/);
   }
@@ -53,7 +49,7 @@ class Schedule {
         await this.chat.sendReply(msg, replyMsg);
       } else if (msg.body === COMMAND_ALL) {
         await this.chat.sendReply(msg, allSchedule);
-      } else if (this.startsWith(msg.body, COMMAND_SET)) {
+      } else if (this.chat.startsWith(msg.body, COMMAND_SET)) {
         let param;
 
         if (msg.from.includes("@g.us")) {
