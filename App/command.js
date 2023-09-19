@@ -56,7 +56,7 @@ const helpMsg =
   "/sched set - menyimpan jadwal kamu\n" +
   "/sched me - menampilkan jadwal kamu\n" +
   "/sched info - untuk menampilkan jadwal dia\n" +
-  "/tr - untuk translate en -> id\n" +
+  "/tr [args] - argument: code language\n" +
   "/image - generate random anime image\n" +
   "/resendmedia - resend media, tested: image,voice\n" +
   "/ping - check latency to whatsapp server\n" +

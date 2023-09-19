@@ -3,6 +3,17 @@ class Translate {
     this.chat = chat;
   }
 
+  extractLang(input) {
+    const regex = /^\/tr\s+(\w{2})$/;
+    const match = input.match(regex);
+
+    if (match && match[1]) {
+      return match[1];
+    } else {
+      return "en";
+    }
+  }
+
   async doTranslate(apiKey, queries, source = "auto", target = "id") {
     const req = await fetch("http://freeze.masmanto.xyz:5000/translate", {
       method: "POST",
@@ -18,7 +29,7 @@ class Translate {
 
     try {
       const response = req.json();
-      return response.translatedText;
+      return response;
     } catch (err) {
       console.log("[error] Failed to fetch url translation: ", err);
     }
@@ -28,14 +39,15 @@ class Translate {
     try {
       let text;
 
-      if (msg.body === COMMAND_TR) {
+      if (this.chat.startsWith(msg.body, COMMAND_TR)) {
         if (msg.hasQuotedMsg) {
           const quotedMsg = await msg.getQuotedMessage();
           if (quotedMsg.body) {
             text = quotedMsg.body;
           }
-          const request = await this.doTranslate(key, text);
-          const result = request.data.translations[0].translatedText;
+          const targetLang = this.extractLang(msg.body);
+          const request = await this.doTranslate(key, text, "auto", targetLang);
+          const result = request.translatedText;
 
           await this.chat.sendReply(msg, `Translate result:\n${result}`);
         } else {

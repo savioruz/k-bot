@@ -1,4 +1,8 @@
 class Chat {
+  startsWith(str, prefix) {
+    return str.indexOf(prefix) === 0;
+  }
+
   async sendMsg(msg, client, text) {
     await client
       .sendMessage(msg.from, text)
