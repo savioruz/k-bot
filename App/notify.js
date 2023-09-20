@@ -33,8 +33,8 @@ class Notify {
       Strdata: "55 13 * * 5",
       Oop: "38 8 * * 6",
       Os: "15 12 * * 6",
+      Aqidah: "00 15 * * 6",
       Eng: "0 16 * * 6",
-      Aqidah: "50 16 * * 6",
     };
 
     const data = await this.msg();
