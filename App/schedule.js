@@ -199,7 +199,7 @@ const allSchedule =
   "Sabtu| OOP          | 08:45 | 10:25 | 4.1.5.57 \n" +
   "Sabtu| OS           | 12:30 | 14:10 | Daring   \n" +
   "Sabtu| Aqidah       | 15:15 | 16:05 | 4.1.4.35 \n" +
-  "Sabtu| English      | 16:10 | 17:00 | 4.1.4.53 \n";
+  "Sabtu| English      | 16:10 | 17:00 | 4.1.4.53 ```\n";
 
 const time = new TimeDate();
 const chat = new Chat();
