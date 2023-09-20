@@ -34,13 +34,13 @@ class Schedule {
       if (msg.body === COMMAND_SINGLE) {
         const replyMsg =
           "Schedule command usage: \n\n" +
-          "```#|Command|Args|         Function          \n" +
-          "-|-------|----|---------------------------\n" +
-          "1|/sched |all |menampilkan semua jadwal   \n" +
-          "2|/sched |now |menampilkan jadwal hari ini\n" +
-          "3|/sched |set |menyimpan jadwal kamu      \n" +
-          "4|/sched |me  |menampilkan jadwal kamu    \n" +
-          "5|/sched |info|menampilkan jadwal orang   ```\n";
+          "```# |   Command   |Args|             Function        \n" +
+          "--|-------------|----|-----------------------------\n" +
+          " 1| /sched      |all | menampilkan semua jadwal    \n" +
+          " 2| /sched      |now | menampilkan jadwal hari ini \n" +
+          " 3| /sched      |set | menyimpan jadwal kamu       \n" +
+          " 4| /sched      |me  | menampilkan jadwal kamu     \n" +
+          " 5| /sched      |info| menampilkan jadwal orang    ```\n";
 
         await this.chat.sendReply(msg, replyMsg);
       } else if (msg.body === COMMAND_NOW) {

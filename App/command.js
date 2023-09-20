@@ -51,21 +51,19 @@ const COMMAND_ABOUT = "/about";
 
 const helpMsg =
   "list command: \n\n" +
-  "```+--+------------+----+--------------------------------+\n" +
-  "| #|  Command   |Args|             Function           |\n" +
-  "+--+------------+----+--------------------------------+\n" +
-  "| 1|/sched      |all | menampilkan semua jadwal       |\n" +
-  "| 2|/sched      |now | menampilkan jadwal hari ini    |\n" +
-  "| 3|/sched      |set | menyimpan jadwal kamu          |\n" +
-  "| 4|/sched      |me  | menampilkan jadwal kamu        |\n" +
-  "| 5|/sched      |info| menampilkan jadwal orang       |\n" +
-  "| 6|/tr         |id  | translate, <lang code> sbg args|\n" +
-  "| 7|/image      |    | generate random anime image    |\n" +
-  "| 8|/resendmedia|    | resend media                   |\n" +
-  "| 9|/ping       |    | check latency to WA server     |\n" +
-  "|10|/help       |    | menampilkan menu bantuan       |\n" +
-  "|11|/about      |    | tentang k-bot                  |\n" +
-  "+--+------------+----+--------------------------------+```\n\n" +
+  "```# |   Command   |Args|             Function              \n" +
+  "--|-------------|----|-----------------------------\n" +
+  " 1| /sched      |all | menampilkan semua jadwal          \n" +
+  " 2| /sched      |now | menampilkan jadwal hari ini       \n" +
+  " 3| /sched      |set | menyimpan jadwal kamu             \n" +
+  " 4| /sched      |me  | menampilkan jadwal kamu           \n" +
+  " 5| /sched      |info| menampilkan jadwal orang          \n" +
+  " 6| /tr         |id  | translate, <lang> sbg args   \n" +
+  " 7| /image      |    | generate random anime image       \n" +
+  " 8| /resendmedia|    | resend media \n" +
+  " 9| /ping       |    | check latency to WA server  \n" +
+  "10| /help       |    | menampilkan menu bantuan          \n" +
+  "11| /about      |    | tentang k-bot ```\n\n" +
   "in order to get better experience pls setting font size to *small* on ```Settings > Chats > Font Size```";
 
 const aboutMsg =
