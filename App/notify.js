@@ -1,47 +1,127 @@
 class Notify {
-  constructor(time, schedule) {
+  constructor(time) {
     this.time = time;
-    this.schedule = schedule;
-  }
-
-  async msg() {
-    const data = {
-      msg: null,
-      time: null,
-    };
-
-    try {
-      data.msg = await this.schedule.currentSchedule();
-      data.time = await this.time.getDate();
-      console.log("[info] Result: ", data.time, data.msg);
-    } catch (err) {
-      console.error("[error] Failed to fetch schedule and time: ", err);
-    }
-
-    return data;
   }
 
   async job(msg, client) {
     const cronJob = {
-      PStatistika: "45 11 * * 1",
-      Statistika: "7 15 * * 1",
-      Database: "28 9 * * 3",
-      PDatabase: "15 13 * * 3",
-      PStrdata: "45 8 * * 4",
-      POs: "20 10 * * 4",
-      POop: "30 16 * * 4",
-      Strdata: "55 13 * * 5",
-      Oop: "38 8 * * 6",
-      Os: "15 12 * * 6",
-      Aqidah: "00 15 * * 6",
-      Eng: "0 16 * * 6",
+      PStatistika: {
+        msg: "\n" +
+        "```+--------------+-------+-------+----------+\n" +
+        "|    Senin     | start |  end  |    🏢    |\n" +
+        "+--------------+-------+-------+----------+\n" +
+        "| P statistika | 12:00 | 15:00 | Daring   |\n" +
+        "+--------------+-------+-------+----------+\n```",
+        cron: "45 11 * * 1",
+      },
+      Statistika: {
+        msg: "\n" +
+        "```+--------------+-------+-------+----------+\n" +
+        "|    Senin     | start |  end  |    🏢    |\n" +
+        "+--------------+-------+-------+----------+\n" +
+        "| statistika   | 15:15 | 17:50 | 4.1.5.69 |\n" +
+        "+--------------+-------+-------+----------+\n```",
+        cron: "7 15 * * 1",
+      },
+      Database: {
+        msg: "\n" +
+        "```+------------+-------+-------+------------+\n" +
+        "|    Rabu    | start |  end  |     🏢     |\n" +
+        "+------------+-------+-------+------------+\n" +
+        "| database   | 09:35 | 12:10 | 4.1.5.60   |\n" +
+        "+------------+-------+-------+------------+\n```",
+        cron: "28 9 * * 3",
+      },
+      PDatabase: {
+        msg: "\n" +
+        "```+------------+-------+-------+------------+\n" +
+        "|    Rabu    | start |  end  |     🏢     |\n" +
+        "+------------+-------+-------+------------+\n" +
+        "| P database | 13:30 | 16:30 | Basis Data |\n" +
+        "+------------+-------+-------+------------+\n```",
+        cron: "15 13 * * 3",
+      },
+      PStrdata: {
+        msg: "\n" +
+        "```+-------------+-------+-------+------------+\n" +
+        "|    Kamis    | start |  end  |     🏢     |\n" +
+        "+-------------+-------+-------+------------+\n" +
+        "| P str. data | 09:00 | 10:30 | Kom. Dasar |\n" +
+        "+-------------+-------+-------+------------+\n```",
+        cron: "45 8 * * 4",
+      },
+      POs: {
+        msg: "\n" +
+        "```+-------------+-------+-------+------------+\n" +
+        "|    Kamis    | start |  end  |     🏢     |\n" +
+        "+-------------+-------+-------+------------+\n" +
+        "| P OS        | 10:30 | 12:00 | Kom. Dasar |\n" +
+        "+-------------+-------+-------+------------+\n```",
+        cron: "20 10 * * 4",
+      },
+      POop: {
+        msg: "\n" +
+        "```+-------------+-------+-------+------------+\n" +
+        "|    Kamis    | start |  end  |     🏢     |\n" +
+        "+-------------+-------+-------+------------+\n" +
+        "| P OOP       | 16:30 | 18:00 | Multimedia |\n" +
+        "+-------------+-------+-------+------------+\n```",
+        cron: "30 16 * * 4",
+      },
+      Strdata: {
+        msg: "\n" +
+        "```+---------------+-------+-------+----------+\n" +
+        "|     Jumat     | start |  end  |    🏢    |\n" +
+        "+---------------+-------+-------+----------+\n" +
+        "| struktur data | 14:15 | 16:05 | 4.1.5.55 |\n" +
+        "+---------------+-------+-------+----------+\n```",
+        cron: "55 13 * * 5",
+      },
+      Oop: {
+        msg: "\n" +
+        "```+---------+-------+-------+----------+\n" +
+        "|  Sabtu  | start |  end  |    🏢    |\n" +
+        "+---------+-------+-------+----------+\n" +
+        "| OOP     | 08:45 | 10:25 | 4.1.5.57 |\n" +
+        "+---------+-------+-------+----------+\n```",
+        cron: "38 8 * * 6",
+      },
+      Eng: {
+        msg: "\n" +
+        "```+---------+-------+-------+----------+\n" +
+        "|  Sabtu  | start |  end  |    🏢    |\n" +
+        "+---------+-------+-------+----------+\n" +
+        "| English | 10:30 | 12:10 | 4.1.4.53 |\n" +
+        "+---------+-------+-------+----------+\n```",
+        cron: "20 10 * * 6",
+      },
+      Os: {
+        msg: "\n" +
+        "```+---------+-------+-------+----------+\n" +
+        "|  Sabtu  | start |  end  |    🏢    |\n" +
+        "+---------+-------+-------+----------+\n" +
+        "| OS      | 12:30 | 14:10 | Daring   |\n" +
+        "+---------+-------+-------+----------+\n```",
+        cron: "15 12 * * 6",
+      },
+      Aqidah: {
+        msg: "\n" +
+        "```+---------+-------+-------+----------+\n" +
+        "|  Sabtu  | start |  end  |    🏢    |\n" +
+        "+---------+-------+-------+----------+\n" +
+        "| Aqidah  | 15:15 | 16:05 | 4.1.4.35 |\n" +
+        "+---------+-------+-------+----------+\n```",
+        cron: "00 15 * * 6",
+      },
     };
 
-    const data = await this.msg();
-    const text = `Jadwal: ${data.time}\n${data.msg}`;
+    const currentTime = await this.time.getDate();
 
     for (let jobName in cronJob) {
-      cron.scheduleJob(cronJob[jobName], () => {
+      const task = cronJob[jobName];
+      const text = "Reminder: " + currentTime + task.msg;
+
+      cron.scheduleJob(task.cron, () => {
         client
           .sendMessage(msg, text)
           .then((result) => {
@@ -56,7 +136,6 @@ class Notify {
 }
 
 const TimeDate = require("../vendor/time");
-const Schedule = require("./schedule");
 const cron = require("node-schedule");
 
 const time = new TimeDate();
