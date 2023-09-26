@@ -63,7 +63,7 @@ const helpMsg =
   "  8 | /resendmedia | resend media                \n" +
   "  9 | /ping        | check latency to WA server  \n" +
   " 10 | /help        | menampilkan menu bantuan    \n" +
-  " 11 | /about       | tentang k-bot               \n" +
+  " 11 | /about       | tentang k-bot               \n\n" +
   "```in order to get better experience pls setting font size to *small* on ```Settings > Chats > Font Size```";
 
 const aboutMsg =
