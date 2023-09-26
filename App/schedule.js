@@ -178,9 +178,9 @@ const msgDay = {
     "|  Sabtu  | start |  end  |    🏢    |\n" +
     "+---------+-------+-------+----------+\n" +
     "| OOP     | 08:45 | 10:25 | 4.1.5.57 |\n" +
+    "| English | 10:30 | 12:10 | 4.1.4.53 |\n" +
     "| OS      | 12:30 | 14:10 | Daring   |\n" +
     "| Aqidah  | 15:15 | 16:05 | 4.1.4.35 |\n" +
-    "| English | 16:10 | 17:00 | 4.1.4.53 |\n" +
     "+---------+-------+-------+----------+\n```",
 };
 
@@ -197,9 +197,9 @@ const allSchedule =
   "Kamis| P OOP        | 16:30 | 18:00 | M. media \n" +
   "Jumat| str. data    | 14:15 | 16:05 | 4.1.5.55 \n" +
   "Sabtu| OOP          | 08:45 | 10:25 | 4.1.5.57 \n" +
+  "Sabtu| English      | 10:30 | 12:10 | 4.1.4.53 \n" +
   "Sabtu| OS           | 12:30 | 14:10 | Daring   \n" +
-  "Sabtu| Aqidah       | 15:15 | 16:05 | 4.1.4.35 \n" +
-  "Sabtu| English      | 16:10 | 17:00 | 4.1.4.53 ```\n";
+  "Sabtu| Aqidah       | 15:15 | 16:05 | 4.1.4.35 \n```";
 
 const time = new TimeDate();
 const chat = new Chat();
