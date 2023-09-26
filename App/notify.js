@@ -139,6 +139,6 @@ const TimeDate = require("../vendor/time");
 const cron = require("node-schedule");
 
 const time = new TimeDate();
-const notify = new Notify(time, Schedule);
+const notify = new Notify(time);
 
 module.exports = notify;
