@@ -69,7 +69,8 @@ const helpMsg =
 const aboutMsg =
   "k-bot is a whatsapp bot made with library wweb.js\n" +
   "this bot is made with ❤️ by Rill\n" +
-  "if you encounter problem pls contact t.me/pethot";
+  "if you encounter problem pls contact t.me/pethot\n" +
+  "or submit issue to https://github.com/jakues/k-bot";
 
 const shell = new Shell();
 const chat = new Chat();
