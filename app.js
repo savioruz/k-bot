@@ -8,6 +8,9 @@ const translate = require("./App/translate");
 
 let rejectCalls = true;
 const myGroup = "120363160807612693@g.us";
+const notifyGroup = "120363025769287051@g.us";
+const changelog =
+  "Changelog:\n" + "Change schedule.js: Eng and command.js: aboutMsg.";
 
 const client = new Client({
   authStrategy: new LocalAuth(),
@@ -63,15 +66,26 @@ client.on("ready", async () => {
     console.log("[info] Client ready");
 
     await client
-    .sendMessage(myGroup, "Bot is alive")
-    .then((result) => {
-      console.log("[info] Result: ", result);
-    })
-    .catch((err) => {
-      console.error("[error] Failed to send message: ", err);
-    });
+      .sendMessage(myGroup, "Bot is alive")
+      .then((result) => {
+        console.log("[info] Result: ", result);
+      })
+      .catch((err) => {
+        console.error("[error] Failed to send message: ", err);
+      });
 
-    await notify.job(myGroup, client);
+    // Send changelog
+    await client
+      .sendMessage(notifyGroup, changelog)
+      .then((result) => {
+        console.log("[info] Result: ", result);
+      })
+      .catch((err) => {
+        console.error("[error] Failed to send message: ", err);
+      });
+
+    // push notification
+    await notify.job(notifyGroup, client);
   } catch (err) {
     console.error("[error] Client failed to start: ", err);
   }
